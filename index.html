@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portfolio | Dev</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="stars"></div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/logoY.png" alt="logo" class="nav-logo" />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT ME</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content-box">
+        <p class="greeting">HI I'M YULI RIVEROS AND I'M A</p>
+        <h1 class="main-title">QA AUTOMATION |</h1>
+        <h1 class="main-title">DEVELOPER |</h1>
+        <h1 class="main-title">UX/UI</h1>
+        <p class="quote">
+          “Quality, design, and technology applied with professional judgment.”
+        </p>
+        <div class="hero-btns">
+          <a
+            href="https://www.linkedin.com/in/yuliriverosortiz-front-qa/"
+            class="btn-icon"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/dojayuli" class="btn-icon"
+            ><i class="fab fa-github"></i
+          ></a>
+        </div>
+      </div>
+      <div class="hero-image-container">
+        <img src="assets/img-Yuli.png" alt="Yuli Riveros" class="hero-image" />
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            I’am a software quality professional focused on requirement
+            analysis, test design and execution, and early risk detection,
+            ensuring products are functional, stable, and aligned with user
+            needs. I have a background in Web Development and UX/UI design,
+            which allows me to better understand system behavior, anticipate
+            potential issues, and collaborate effectively with development
+            teams. I contribute from a QA perspective by integrating quality as
+            a standard throughout the entire product lifecycle.
+          </p>
+        </div>
+        <div class="about-skills">
+          <h2>Skills</h2>
+          <div class="skills-grid">
+            <i class="fab fa-html5"></i><i class="fab fa-css3-alt"></i
+            ><i class="fab fa-js"></i> <i class="fab fa-react"></i
+            ><i class="fab fa-node-js"></i><i class="fab fa-figma"></i>
+            <i class="fab fa-git-alt"></i><i class="fas fa-rocket"></i
+            ><i class="fas fa-check-double"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-item">
+          <div
+            class="project-card shape-1"
+            style="background-image: url(assets/GreenFinTech-image.png)"
+          ></div>
+          <a
+            href="https://www.figma.com/design/T3CaULPX898zRExl7Xfke1/bento-Ecopay?t=oslmm9bSdSjbXbqn-1"
+            target="_blank"
+            class="project-link"
+            >UX/UI - QA validation</a
+          >
+        </div>
+
+        <div class="project-item">
+          <div
+            class="project-card shape-2"
+            style="background-image: url(assets/Dojo-image.png)"
+          ></div>
+          <a
+            href="https://www.figma.com/design/HVZMIfK3BvaE0dCSflCtfy/dojo?node-id=0-1&t=OgIQqIC7eWQiHUEH-1"
+            target="_blank"
+            class="project-link"
+            >UX/UI Designer - Figma</a
+          >
+        </div>
+
+        <div class="project-item">
+          <div
+            class="project-card shape-3"
+            style="background-image: url(assets/websubli.png)"
+          ></div>
+          <a
+            href="https://github.com/dojayuli/ProyectoCodo"
+            target="_blank"
+            class="project-link"
+            >Github Subliartd</a
+          >
+        </div>
+
+        <div class="project-item">
+          <div
+            class="project-card shape-4"
+            style="background-image: url(assets/imagenweb.png)"
+          ></div>
+          <a
+            href="https://github.com/dojayuli/ProyectoBAprende"
+            target="_blank"
+            class="project-link"
+            >Github ActivoGym</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-form">
+        <h2>Contacto</h2>
+        <form>
+          <input type="text" placeholder="Nombre" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Mensaje"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+      <div class="contact-img">
+        <div class="placeholder-img">
+          <img src="assets/robo_image.png" alt="robot" />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="socials">
+        <a
+          href="https://www.linkedin.com/in/yuliriverosortiz-front-qa/"
+          class="btn-icon"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/dojayuli" class="btn-icon"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://www.behance.net/YuliRiverosO" class="btn-icon"
+          ><i class="fab fa-behance"></i
+        ></a>
+      </div>
+      <p>&copy; 2026 Todos los derechos reservados. Designed by Yuli Riveros</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,611 @@
+:root {
+  --bg: #000510;
+  --primary-blue: #007bff;
+  --glass: rgba(255, 255, 255, 0.1);
+  --dark-blue-bg: #001f3f; /* Azul oscuro para el degradado */
+  --darker-blue-bg: #000a1a; /* Un azul aún más oscuro para el degradado */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Montserrat", sans-serif; /* Usamos Montserrat como un buen default similar */
+}
+
+body {
+  background: radial-gradient(
+    circle at center,
+    var(--dark-blue-bg) 0%,
+    var(--darker-blue-bg) 100%
+  );
+  color: white;
+  overflow-x: hidden;
+  min-height: 100vh; /* Asegura que el body tenga al menos el alto de la vista */
+  position: relative;
+}
+
+/* Estrellas decorativas - mantenemos la base */
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* Para que no interfiera con los clics */
+}
+
+/* Navbar Esmerilado (ajustes para el diseño) */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(255, 255, 255, 0.05); /* Ligeramente más transparente */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  text-transform: uppercase; /* Mayúsculas en los links */
+}
+
+/* Estilos específicos para el contenedor del logo */
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Estilos para la imagen del logo */
+.navbar .logo img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo img:hover {
+  transform: scale(1.05); /* Efecto sutil al pasar el mouse */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  position: relative;
+  padding-bottom: 5px; /* Espacio para el subrayado */
+}
+
+.nav-links a::after {
+  /* Subrayado al pasar el mouse */
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Distribuye espacio entre los elementos */
+  padding: 0 10%;
+  background: linear-gradient(
+    to right,
+    #001f3f 0%,
+    #000a1a 100%
+  ); /* Degradado horizontal de azul a negro */
+  position: relative; /* Para posicionar la imagen y elementos abstractos */
+  overflow: hidden;
+}
+
+.hero-content-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  max-width: 500px;
+  padding: 40px 60px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  z-index: 2;
+  margin-right: 20px;
+}
+
+.hero-content-box .greeting {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-content-box .main-title {
+  font-size: 2.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hero-content-box .quote {
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+.hero-btns .btn-icon {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: var(--primary-blue);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 5px 10px; /* Relleno para que parezcan botones */
+  transition: all 0.3s ease;
+}
+.hero-btns .btn-icon:hover {
+  color: white;
+  background-color: var(--primary-blue);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.hero-image-container {
+  z-index: 2;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-image {
+  max-height: 100vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 123, 255, 0.4));
+  transform: scale(1.1);
+}
+
+/* --- Elementos abstractos de fondo--- */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 123, 255, 0.3),
+    rgba(0, 200, 255, 0.1)
+  ); /* Un gradiente para un efecto brillante */
+  filter: blur(80px); /* Desenfoque para un efecto suave */
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.hero::before {
+  /* Elemento superior izquierdo */
+  width: 200px;
+  height: 200px;
+  top: 5%;
+  left: -5%;
+  transform: rotate(30deg);
+}
+
+.hero::after {
+  /* Elemento inferior derecho */
+  width: 300px;
+  height: 300px;
+  bottom: -10%;
+  right: -10%;
+  transform: rotate(-45deg);
+}
+
+/* Mantenemos el resto del CSS de About, Projects, Contact, Footer */
+/* About / Responsive Grid */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 100px 10%;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text h2,
+.about-skills h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  font-size: 3rem;
+  text-align: center;
+  color: var(--primary-blue);
+}
+.skills-grid i {
+  transition: transform 0.3s ease;
+}
+.skills-grid i:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+/* Projects */
+.projects {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: white;
+}
+
+/* Grilla de 2x2 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo base de la tarjeta de imagen */
+.project-card {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* --- Formas Polimórficas (Border Radius Asimétricos) --- */
+/* Top Izquierdo: Esquina superior derecha redondeada */
+.projects-grid .project-item:nth-child(1) .project-card {
+  border-radius: 15px 150px 15px 15px;
+}
+
+/* Top Derecho: Esquina inferior izquierda redondeada */
+.projects-grid .project-item:nth-child(2) .project-card {
+  border-radius: 15px 15px 15px 150px;
+}
+
+/* Bottom Izquierdo: Esquina superior izquierda redondeada */
+.projects-grid .project-item:nth-child(3) .project-card {
+  border-radius: 150px 15px 15px 15px;
+}
+
+/* Bottom Derecho: Esquina inferior derecha redondeada */
+.projects-grid .project-item:nth-child(4) .project-card {
+  border-radius: 15px 15px 150px 15px;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  border-color: #007bff;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+}
+
+/* --- Estilo de los Enlaces (Links) --- */
+.project-link {
+  margin-top: 20px;
+  color: white;
+  text-decoration: none;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.1rem;
+  border-bottom: 1px solid white; /* Subrayado manual para control de espacio */
+  padding-bottom: 2px;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.project-link:hover {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+/* Contact */
+.contact {
+  display: flex;
+  padding: 100px 10%;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center; /* Alinea los items al centro verticalmente */
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px; /* Asegura que no se haga muy pequeño */
+}
+.contact-form h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1); /* Fondo esmerilado */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none; /* Quitar el contorno al enfocar */
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+}
+
+.contact-form textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+.contact-form button:hover {
+  background-color: #0056b3; /* Un azul más oscuro al pasar el mouse */
+  transform: translateY(-3px);
+}
+
+.contact-img {
+  flex: 1;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 123, 255, 0.3),
+    rgba(0, 200, 255, 0.2)
+  ); /* Degradado para la imagen de contacto */
+  border-radius: 15px;
+  min-height: 350px; /* Altura mínima para la imagen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.placeholder-img img {
+  max-width: 75%;
+
+  border-radius: 15px;
+  object-fit: contain;
+}
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 50px;
+}
+
+footer .socials i {
+  font-size: 1.8rem;
+  margin: 0 15px;
+  color: white;
+  transition: color 0.3s ease;
+}
+footer .socials i:hover {
+  color: var(--primary-blue);
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile Menu - Mantener y ajustar si es necesario */
+.burger {
+  display: none;
+  cursor: pointer;
+  z-index: 1001; /* Asegura que esté por encima del menú */
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-active {
+  transform: translateX(0%) !important;
+}
+
+/* Animación del burger */
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column; /* Apila el contenido en pantallas medianas */
+    height: auto; /* Altura automática */
+    padding-top: 120px; /* Espacio para el navbar */
+    padding-bottom: 50px;
+  }
+
+  .hero-content-box {
+    margin-right: 0;
+    margin-bottom: 50px;
+    max-width: 90%; /* Ajusta el ancho para que quepa */
+    padding: 30px;
+  }
+
+  .hero-image-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-image {
+    max-height: 70vh; /* Ajusta la altura de la imagen en móviles */
+  }
+
+  .about-container,
+  .contact {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 5%;
+  }
+
+  .contact-img {
+    min-height: 250px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    padding: 30px 5%;
+  }
+  .contact {
+    flex-direction: column; /* Apila formulario e imagen */
+    gap: 40px;
+    padding: 50px 5%;
+  }
+
+  .contact-form,
+  .contact-img {
+    width: 100%; /* Ocupan todo el ancho */
+    flex: none;
+  }
+
+  .placeholder-img img {
+    max-width: 80%; /* Achica un poco la imagen en tablets */
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: var(--darker-blue-bg); /* Fondo del menú móvil */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    transform: translateX(100%); /* Oculto por defecto */
+    transition: transform 0.5s ease-in;
+    padding-top: 50px;
+  }
+  .nav-links li {
+    opacity: 0; /* Oculta los elementos inicialmente */
+  }
+  .nav-links li a {
+    padding: 20px 0;
+    display: block;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .hero-content-box .main-title {
+    font-size: 2.5rem;
+  }
+  .placeholder-img img {
+    max-width: 100%; /* Permite que ocupe todo el ancho disponible en móvil */
+    height: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacios extra abajo */
+    margin: 0 auto; /* La centra si el contenedor es más ancho */
+  }
+
+  /* Si el contenedor (.placeholder-img) tiene un ancho fijo, cámbialo también */
+  .placeholder-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Animación de los enlaces del menú móvil */
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
