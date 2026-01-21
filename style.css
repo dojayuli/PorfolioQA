@@ -10,8 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:
-    "Montserrat", sans-serif; /* Usamos Montserrat como un buen default similar */
+  font-family: "Raleway", "Outfit", "Poppins", sans-serif;
 }
 
 body {
@@ -37,7 +36,6 @@ body {
   pointer-events: none; /* Para que no interfiera con los clics */
 }
 
-/* Navbar Esmerilado (ajustes para el diseño) */
 .navbar {
   position: fixed;
   top: 0;
@@ -50,7 +48,7 @@ body {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
-  text-transform: uppercase; /* Mayúsculas en los links */
+  text-transform: uppercase; /* Mayúsculas */
 }
 
 /* Estilos específicos para el contenedor del logo */
@@ -149,7 +147,7 @@ body {
   ); /* Se ajusta entre 1.8rem y 2.5rem según el ancho */
   word-wrap: break-word;
   overflow-wrap: break-word;
-  font-family: "Raleway" sans-serif;
+  font-family: "Raleway", sans-serif;
   line-height: 1.1;
 }
 
@@ -521,7 +519,7 @@ footer p {
   }
 
   .hero-image {
-    max-height: 70vh; /* Ajusta la altura de la imagen en móviles */
+    max-height: 85vh; /* Ajusta la altura de la imagen en móviles */
   }
 
   .about-container,
@@ -541,7 +539,7 @@ footer p {
     padding: 30px 5%;
   }
   .contact {
-    flex-direction: column; /* Apila formulario e imagen */
+    flex-direction: column;
     gap: 40px;
     padding: 50px 5%;
   }
@@ -601,6 +599,17 @@ footer p {
     height: auto;
     display: flex;
     justify-content: center;
+    max-width: 60%;
+  }
+  .contact {
+    flex-direction: column-reverse; /* Opcional: pone la imagen abajo del formulario */
+    padding: 50px 5%;
+  }
+
+  .contact-img {
+    width: 100%;
+    min-height: 250px; /* Altura más adecuada para celulares */
+    margin-top: 20px;
   }
 }
 
